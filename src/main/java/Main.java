@@ -27,5 +27,12 @@ public class Main  {
             x = m.group();
         }
         System.out.println(x);
+
+        m =Pattern.compile("\\B([a-z]{2})").matcher("9:39pm"); //AM/PM
+
+        if(m.find()) {
+            x = m.group();
+            System.out.println(x);
+        }
     }
 }
