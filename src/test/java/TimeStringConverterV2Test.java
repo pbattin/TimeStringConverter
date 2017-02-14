@@ -5,7 +5,7 @@ import org.junit.Test;
 /**
  * Created by prestonbattin on 2/13/17.
  */
-public class TimeStringConverV2Test {
+public class TimeStringConverterV2Test {
 
     TimeStringConverterV2 convert;
 
@@ -26,7 +26,7 @@ public class TimeStringConverV2Test {
     @Test
     public void convertedTimeTest(){
 
-        String expected = "It is nine thirty-two PM.";
+        String expected = "It is one oh six PM.";
         String actual = convert.displayTime();
         Assert.assertEquals("Testing string output", expected, actual);
     }
