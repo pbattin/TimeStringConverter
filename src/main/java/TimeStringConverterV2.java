@@ -31,7 +31,7 @@ public class TimeStringConverterV2 {
             hour = m.group();
         }
 
-       m = Pattern.compile("\\w\\d+").matcher(time); //minute
+       m = Pattern.compile("(?<=:)\\w\\d+").matcher(time); //minute
 
        if(m.find()) {
            minute = m.group();
@@ -47,12 +47,21 @@ public class TimeStringConverterV2 {
 
     public String determineMinutes(int minutes){
 
-        if(minutes > 10){
+        if(minutes > 20){
             return tens[minutes/10] + "-" + units[minutes%10];
         }
 
-        else{
-            return tens[minutes];
+        else if(minutes < 10){
+
+            return "oh " + units[minutes];
+        }
+
+        else if(minutes == 0){
+            return "oh clock";
+        }
+
+        else {
+            return units[minutes];
         }
     }
 

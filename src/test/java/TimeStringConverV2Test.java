@@ -12,7 +12,7 @@ public class TimeStringConverV2Test {
 
     @Before
     public void setup(){
-        convert = new TimeStringConverterV2("9:32PM");
+        convert = new TimeStringConverterV2("1:06PM");
     }
 
     @Test
