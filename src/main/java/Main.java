@@ -1,4 +1,5 @@
 import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 /**
@@ -7,14 +8,24 @@ import java.util.regex.Matcher;
 public class Main  {
 
     public static void main(String[] args) {
+        String x = "";
 
-        Regex regex = new Regex();
-        String one = "oNe";
-        Matcher test = regex.one.matcher(one);
-        System.out.println(test.matches());
-        TimeStringConverter t = new TimeStringConverter("s");
-        System.out.println(t.numbers.get("ONE"));
+        Matcher m = Pattern.compile("(\\B[a-z]{2})").matcher("9:39pm"); //am/pm
+        if(m.find()) {
+            x = m.group();
+        }
+        System.out.println(x);
 
+        m = Pattern.compile("\\w\\d+").matcher("9:39pm");
+        if(m.find()){
+            x = m.group();
+        }
+        System.out.println(x);
 
+        m = Pattern.compile("\\b\\d+(?=:)").matcher("9:39pm");
+        if(m.find()){
+            x = m.group();
+        }
+        System.out.println(x);
     }
 }

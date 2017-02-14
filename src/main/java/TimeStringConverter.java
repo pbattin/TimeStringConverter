@@ -6,9 +6,12 @@ import com.google.common.collect.HashBiMap;
  */
 public class TimeStringConverter {
 
-    BiMap<String, Integer> numbers =  HashBiMap.create();
+    private BiMap<String, Integer> numbers =  HashBiMap.create();
+    private String[] hoursMinutes = new String[2];
 
-    TimeStringConverter(String input){
+    TimeStringConverter(String time){
+
+        splitSentence(time);
 
         numbers.put("one", 1);      numbers.put("thirteen", 13);        numbers.put("twenty-five", 25);     numbers.put("thirty-seven", 37);    numbers.put("forty-nine", 49);
         numbers.put("two", 2);      numbers.put("fourteen", 14);        numbers.put("twenty-six", 26);      numbers.put("thirty-eight", 38);    numbers.put("fifty", 50);
@@ -25,6 +28,18 @@ public class TimeStringConverter {
 
     }
 
+    public String[] getHoursMinutes() {
+        return hoursMinutes;
+    }
 
+    public void splitSentence(String input){
+
+       hoursMinutes = input.toLowerCase().split(" ");
+    }
+
+    public String convertWordsToTime(){
+
+        return "It is " + numbers.get(hoursMinutes[0]) + ":" + numbers.get(hoursMinutes[1]);
+    }
 
 }
