@@ -30,4 +30,13 @@ public class TimeStringConverterV2Test {
         String actual = convert.displayTime();
         Assert.assertEquals("Testing string output", expected, actual);
     }
+
+    @Test
+    public void determineIfMilitaryTimeTest(){
+
+        String expected = "nine";
+        String actual = convert.determineIfMilitaryTime(21);
+        Assert.assertEquals("Testing converting military time", expected, actual);
+
+    }
 }

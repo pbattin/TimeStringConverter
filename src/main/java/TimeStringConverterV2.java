@@ -65,13 +65,25 @@ public class TimeStringConverterV2 {
         }
     }
 
+    public String determineIfMilitaryTime(int hour){
+
+        if(hour > 12){
+
+            return units[hour - 12];
+        }
+
+        else{
+            return units[hour];
+        }
+    }
+
     public String displayTime(){
 
         int displayHour = Integer.parseInt(hour);
         int displayMinute = Integer.parseInt(minute);
         String displayAmPm = amPm;
 
-        return "It is " + units[displayHour] + " " +
+        return "It is " + determineIfMilitaryTime(displayHour) + " " +
                 determineMinutes(displayMinute) + " " +  displayAmPm.toUpperCase() + ".";
     }
 
