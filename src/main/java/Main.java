@@ -5,7 +5,7 @@ public class Main  {
 
     public static void main(String[] args) {
 
-        TimeStringConverterV2 convert = new TimeStringConverterV2("20:58PM");
+        TimeStringConverter convert = new TimeStringConverter("20:58PM");
         System.out.println(convert.displayTime());
     }
 }

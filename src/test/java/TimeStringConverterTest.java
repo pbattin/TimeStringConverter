@@ -2,41 +2,41 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Arrays;
-
 /**
  * Created by prestonbattin on 2/13/17.
  */
 public class TimeStringConverterTest {
 
-    TimeStringConverter converter;
+    TimeStringConverter convert;
+
 
     @Before
     public void setup(){
-
-        converter = new TimeStringConverter("one thirty-eight");
-    }
-
-
-    @Test
-    public void splitSentenceTest(){
-
-        String expected = "[one, thirty-eight]";
-        String actual = Arrays.toString(converter.getHoursMinutes());
-        Assert.assertEquals("Testing method that divides sentence", expected, actual);
+        convert = new TimeStringConverter("1:06PM");
     }
 
     @Test
-    public void convertWordstoTimeTest(){
+    public void determineMinutesTest(){
 
-        String expected = "It is 1:39";
-        String actual = converter.convertWordsToTime();
-        Assert.assertEquals("Checking output string", expected, actual);
+        String expected = "forty-three";
+        String actual = convert.determineMinutes(43);
+        Assert.assertEquals("Testing minute converter method", expected, actual);
     }
 
+    @Test
+    public void convertedTimeTest(){
 
+        String expected = "It is one oh six PM.";
+        String actual = convert.displayTime();
+        Assert.assertEquals("Testing string output", expected, actual);
+    }
 
+    @Test
+    public void determineIfMilitaryTimeTest(){
 
+        String expected = "nine";
+        String actual = convert.determineIfMilitaryTime(21);
+        Assert.assertEquals("Testing converting military time", expected, actual);
 
-
+    }
 }
