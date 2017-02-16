@@ -3,9 +3,9 @@
  */
 public class Main  {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IncorrectTimeFormatException{
 
-        TimeStringConverter convert = new TimeStringConverter("20:58PM");
-        System.out.println(convert.displayTime());
+      TimeStringConverter converter = new TimeStringConverter("2300");
     }
 }
+
